@@ -8,12 +8,12 @@ require('dotenv').config();
 const app = express();
 app.use(express.json()); // To parse JSON bodies
 
-app.use(cors(corsOptions));
 app.use(cookieParser());
 const corsOptions={
   origin:'https://66c733d7d921d31d087a7ebb--b2bmart.netlify.app/',
   credentials:true
 }
+app.use(cors(corsOptions)); 
 
 
 connectDB(); 
