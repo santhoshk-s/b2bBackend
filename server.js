@@ -2,13 +2,22 @@ const express = require('express');
 const connectDB = require('./src/configDB/db');
 const authRoutes = require('./src/Routes/authRoutes');
 const adminRoutes = require('./src/Routes/adminRoutes');
+const cookieParser = require('cookie-parser')
+const cors = require("cors")
 require('dotenv').config();
-
 const app = express();
+app.use(express.json()); // To parse JSON bodies
+
+app.use(cookieParser());
+const corsOptions={
+  origin:'https://66c733d7d921d31d087a7ebb--benevolent-melomakarona-97be84.netlify.app/',
+  credentials:true
+}
+
+app.use(cors(corsOptions));
 
 connectDB(); 
 
-app.use(express.json()); // To parse JSON bodies
 
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
 // const corsOrigin =  'http://localhost:5173'; // Fallback to localhost in development
