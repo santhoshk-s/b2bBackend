@@ -10,8 +10,8 @@ connectDB();
 
 app.use(express.json()); // To parse JSON bodies
 
-// const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:5173';
-const corsOrigin =  'http://localhost:5173'; // Fallback to localhost in development
+const corsOrigin = process.env.CORS_ORIGIN ;
+// const corsOrigin =  'http://localhost:5173'; // Fallback to localhost in development
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', corsOrigin);
