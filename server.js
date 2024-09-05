@@ -36,8 +36,8 @@ const server = app.listen(5000, () => {
 // chat
 const io = socket(server, {
   cors: {
-    origin:'https://student-b2bmart.netlify.app' ,
-    credentials: true,
+    // origin:'https://student-b2bmart.netlify.app' ,
+    credentials: false,
   },
 });
 
